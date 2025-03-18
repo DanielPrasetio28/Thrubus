@@ -171,17 +171,23 @@
             <div class="flex items-center gap-2">
                 <input type="text" id="destination-location" class="border-2 border-gray-300 py-3 px-5 rounded-xl w-full" placeholder="Masukkan Lokasi Tujuan">
                 <div id="destination-dropdown" class="autocomplete-dropdown hidden"></div>
-                <button>
+                <button id="clear-destination">
                     <img class="h-5" src="assets/cancel.png" alt="Location">
                 </button>
             </div>
+        </div>
+
+        <div class="mt-10 flex justify-center text-red-600 width-full font-semibold">
+            <button id="add-destination">
+                + Tambah Lokasi Tujuan
+            </button>    
         </div>
 
         <button class="mt-10 px-6 py-4 bg-yellow-400 text-gray-800 font-bold rounded-xl w-full">Cek Harga</button>
     </section>
 
     <script>
-            document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function () {
             function setupAutocomplete(inputId, dropdownId) {
                 let inputElement = document.getElementById(inputId);
                 let dropdown = document.getElementById(dropdownId);
@@ -224,6 +230,34 @@
 
             setupAutocomplete("pickup-location", "pickup-dropdown");
             setupAutocomplete("destination-location", "destination-dropdown");
+
+            // Clear destination input functionality
+            document.getElementById("clear-destination").addEventListener("click", function() {
+                document.getElementById("destination-location").value = "";
+            });
+
+    // Add new destination input functionality
+    document.getElementById("add-destination").addEventListener("click", function() {
+        const newDiv = document.createElement("div");
+        newDiv.className = "flex items-center gap-2 mt-4";
+        newDiv.innerHTML = `
+            <input type="text" class="border-2 border-gray-300 py-3 px-5 rounded-xl w-full" placeholder="Masukkan Lokasi Tujuan Baru">
+            <div class="autocomplete-dropdown hidden"></div>
+            <button class="remove-destination">
+                <img class="h-5" src="assets/cancel.png" alt="Remove">
+            </button>
+        `;
+        document.querySelector(".autocomplete-container").appendChild(newDiv);
+
+        // Initialize autocomplete for the new input field
+        setupAutocomplete(newDiv.querySelector("input"), newDiv.querySelector(".autocomplete-dropdown"));
+
+
+                // Attach event listener to the new cancel button
+                newDiv.querySelector(".remove-destination").addEventListener("click", function() {
+                    newDiv.remove();
+                });
+            });
         });
 
         var x, i, selElmnt, a, b, c;
@@ -341,8 +375,4 @@
                 <div class="ml-6">
                     <h2 class="text-xl font-bold">Sumatera Barat</h2>
                 </div>
-            </div>
-        </div>
-    </section>
-</body>
-</html>
+</div>
