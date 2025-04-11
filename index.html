@@ -87,7 +87,7 @@
     </style>
 </head>
 <body class="bg-white ">
-        <nav class="pt-8 pb-8 flex justify-between items-center font-bold mx-32">
+        <nav id="navbar" class="sticky top-0 z-50 py-8 flex justify-between items-center font-bold px-32 transition-all duration-300">
             <img class="h-11" src="assets/logo.png" alt="Logo">
             <div class="flex justify-between items-center">
                 <a href="#" class="mr-20 text-gray-700">Layanan Kami</a>
@@ -344,7 +344,7 @@
         <div class="grid grid-cols-2 gap-16 text-gray-700 mt-14">
             <!-- Banyak Pilihan Kendaraan Sewa -->
             <div class="flex items-center">
-                <img class="h-20" src="assets/car-why choose us.png" alt="Logo">
+                <img class="h-20" src="assets/car-why choose us.png" alt="Car icon representing vehicle rental options" title="Vehicle rental options">
                 <div class="ml-8">
                     <h2 class="text-2xl font-bold">Banyak Pilihan Kendaraan Sewa</h2>
                     <p class="mt-2">Banyak pilihan tipe kendaraan yang dapat Anda pilih</p>
@@ -352,7 +352,7 @@
             </div>
 
             <div class="flex items-center">
-                <img class="h-20" src="assets/map-why choose us.png" alt="Logo">
+                <img class="h-20" src="assets/map-why choose us.png" alt="Map icon representing ground transportation services" title="Ground transportation services">
                 <div class="ml-8">
                     <h2 class="text-2xl font-bold">Banyak Layanan Angkutan Darat</h2>
                     <p class="mt-2">Kami juga menyediakan banyak layanan angkutan darat lainnya</p>
@@ -360,7 +360,7 @@
             </div>
 
             <div class="flex items-center">
-                <img class="h-20" src="assets/loc-why choose us.png" alt="Logo">
+                <img class="h-20" src="assets/loc-why choose us.png" alt="Location pin icon showing nationwide availability" title="Nationwide availability">
                 <div class="ml-8">
                     <h2 class="text-2xl font-bold">Ada di Setiap Kota</h2>
                     <p class="mt-2">Layanan tersedia di setiap kota di Indonesia</p>
@@ -368,7 +368,7 @@
             </div>
 
             <div class="flex items-center">
-                <img class="h-20" src="assets/wallet-why choose us.png" alt="Logo">
+                <img class="h-20" src="assets/wallet-why choose us.png" alt="Wallet icon representing easy online payments" title="Easy online payments">
                 <div class="ml-8">
                     <h2 class="text-2xl font-bold">Pembayaran Mudah</h2>
                     <p class="mt-2">Pembayaran dapat dilakukan secara online melalui website</p>
@@ -472,7 +472,27 @@
 
     </section>
 
+    <style>
+        .navbar-blur {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+    </style>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                navbar.classList.add('navbar-blur');
+            } else {
+                navbar.classList.remove('navbar-blur');
+            }
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Initializing Swiper...');
@@ -629,7 +649,7 @@
             <div class="flex gap-16 text-gray-700 mt-14">
                 <!-- Banyak Pilihan Kendaraan Sewa -->
                 <div class="flex-col place-items-center">
-                    <img class="h-20" src="assets/search cara pesan.png" alt="Logo">
+                    <img class="h-20" src="assets/search cara pesan.png" alt="Search icon" title="Search step">
                     <div class="text-center mt-4">
                         <h2 class="text-2xl font-bold">Cari</h2>
                         <p class="mt-2">Pilih destinasi dan tanggal pesanan anda</p>
