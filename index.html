@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
+        html {
+          scroll-behavior: smooth;
+        }
         body {
             font-family: 'Poppins', sans-serif;
         }
@@ -93,9 +96,12 @@
                 <a href="#" class="mr-20 text-gray-700">Layanan Kami</a>
                 <a href="#" class="mr-20 text-gray-700">Daftar Member</a>
                 <a href="#" class="mr-20 text-gray-700">Daftar Mitra</a>
-                <div href="#" class="bg-yellow-400 px-8 py-2 rounded-3xl">
-                    <a href="#" class="text-gray-700">Login</a>
-                </div>
+                <button href="#">
+                    <div href="#" class="bg-yellow-400 px-8 py-2 rounded-3xl">
+                        <a  class="text-gray-700">Login</a>
+                    </div>
+                </button>
+
             </div>
         </nav>
 
@@ -106,15 +112,21 @@
             <p class="mt-8 font-semibold text-xl">Pilih rute perjalanan, kendaraan, dan logistik anda dan dapatkan</p>
             <p class="font-semibold text-xl">estimasi harga terbaik</p>
             <div class="">
-                <button class="inline-block mt-8 px-8 py-3.5 bg-red-700 text-white font-semibold rounded-full transform transition-transform duration-300 hover:scale-110 cursor-pointer">Cek Harga</button>
-                <button class="inline-block ml-5 mt-6 px-10 py-3.5 relative transform transition-transform duration-300 hover:scale-110 cursor-pointer">
-                    <span class="absolute inset-0 bg-gray-300 opacity-25 rounded-full"></span>
-                    <span class="relative text-white font-semibold ">Layanan Kami</span>
-                </button>
+                <a href="#cek-harga">
+                    <button class="inline-block mt-8 px-8 py-3.5 bg-red-700 text-white font-semibold rounded-full transform transition-transform duration-300 hover:scale-110 cursor-pointer">
+                      Cek Harga
+                    </button>
+                </a>
+                <a href="#layanan-kami">
+                    <button class="inline-block ml-5 mt-6 px-10 py-3.5 relative transform transition-transform duration-300 hover:scale-110 cursor-pointer">
+                        <span class="absolute inset-0 bg-gray-300 opacity-25 rounded-full"></span>
+                        <span class="relative text-white font-semibold ">Layanan Kami</span>
+                    </button>
+                </a>
             </div>
         </div>
 
-        <section class="mx-32 px-24 py-12 bg-white shadow-lg shadow-red-500/10 mt-6 rounded-2xl text-gray-700 mb-32">
+        <section id="cek-harga"  class="mx-32 px-24 py-12 bg-white shadow-lg shadow-red-500/10 mt-6 rounded-2xl text-gray-700 mb-32">
 
             <div class="flex justify-center">
                 <h3 class="text-5xl pt-2 font-bold text-center text-red-800">Cek Harga Sekarang</h3>
@@ -128,9 +140,8 @@
                     <div class="custom-select">
                         <select>
                             <option value="0">Pilih Paket Sewa</option>
-                            <option value="1">Paket Harian</option>
-                            <option value="2">Paket Mingguan</option>
-                            <option value="3">Paket Bulanan</option>
+                            <option value="1">Paket Sewa Harian</option>
+                            <option value="2">Paket Drop Off</option>
                         </select>
                     </div>
                 </div>
@@ -554,10 +565,10 @@
         }
     </style>
 
-    <section class="mx-32 mb-32">
+    <section  class="mx-32 mb-32">
 
         <div class="flex justify-center">
-            <h1 class="text-6xl pt-3 font-bold text-center text-red-800">Banyak Pilihan Layanan</h1>
+            <h1 id="layanan-kami" class="text-6xl pt-3 font-bold text-center text-red-800">Banyak Pilihan Layanan</h1>
             <img class="ml-2 h-10" src="assets/multi search.png" alt="Logo">
         </div>
         <p class="text-center text-2xl text-gray-700 mt-8">Banyak pilihan kendaraan sewaan yang bisa langsung anda pesan secara online</p>
